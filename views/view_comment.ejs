@@ -1,0 +1,50 @@
+<%- include('header') %>
+            <!--Main-->
+            <main class="bg-white-500 flex-1 p-3 overflow-hidden">
+
+                <div class="flex flex-col">
+                    <!-- Card Sextion Starts Here -->
+                    <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+                        <!--Horizontal form-->
+                        <div class="mb-2 border-solid border-grey-light rounded border shadow-sm w-full md:w-1/2 lg:w-1/2">
+                            <div class="bg-gray-300 px-2 py-3 border-solid border-gray-400 border-b">
+                                Bordered Table
+                            </div>
+                            <div class="p-3 border">
+
+                              <form>
+                                <input type="text" name="search">
+                                <input type="submit" value="searching">
+                              </form>
+
+                                <table class="table-fixed border">
+                                    <thead>
+                                      <tr>
+                                        <th class="border w-1/2 px-4 py-2">UserName</th>
+                                        <th class="border w-1/4 px-4 py-2">Images</th>
+                                        <th class="border w-1/4 px-4 py-2">Gmail</th>
+                                        <th class="border w-1/4 px-4 py-2">Comment</th>
+                                        <th class="border w-1/4 px-4 py-2">Blog Name</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                        <% for(var cd of CommentData){ %>
+                                            <tr>
+                                            <td class="border w-1/2 px-4 py-2 "><%= cd.name %></td>
+                                            <td class="border w-1/2 px-4 py-2 "><img src="<%= cd.image %> " width="50" alt=""></td>
+                                            <td class="border w-1/2 px-4 py-2 "><%= cd.email %></td>
+                                            <td class="border w-1/2 px-4 py-2 "><%= cd.comment %></td>
+                                            <td class="border w-1/4 px-4 py-2"><%= cd.blogId.title %> </td>
+                                        </tr>
+                                            <% } %>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--/Horizontal form-->
+
+                        <%- include('footer') %>
+
+                     

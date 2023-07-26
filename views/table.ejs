@@ -1,0 +1,56 @@
+<%- include('header') %>
+            <!--Main-->
+            <main class="bg-white-500 flex-1 p-3 overflow-hidden">
+
+                <div class="flex flex-col">
+                    <!-- Card Sextion Starts Here -->
+                    <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+                        <!--Horizontal form-->
+                        <div class="mb-2 border-solid border-grey-light rounded border shadow-sm w-full md:w-1/2 lg:w-1/2">
+                            <div class="bg-gray-300 px-2 py-3 border-solid border-gray-400 border-b">
+                                Bordered Table
+                            </div>
+                            <div class="p-3 border">
+
+                              <form>
+                                <input type="text" name="search">
+                                <input type="submit" value="searching">
+                              </form>
+
+                                <table class="table-fixed border">
+                                    <thead>
+                                      <tr>
+                                        <th class="border w-1/2 px-4 py-2">UserName</th>
+                                        <th class="border w-1/4 px-4 py-2">Email</th>
+                                        <th class="border w-1/4 px-4 py-2">Password</th>
+                                        <th class="border w-1/4 px-4 py-2">Image</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <% for (var d of record) { %>
+                                      <tr>
+                                        <td class="border px-4 py-2"><%= d.username %></td>
+                                        <td class="border px-4 py-2"><%= d.email %></td>
+                                        <td class="border px-4 py-2"><%= d.password %></td>
+                                        <td class="border "><img src="<%= d.avatar %>" alt="" width="50"></td>
+                                      </tr>
+
+                                     <% } %>
+
+                                      <tr>
+                                        <td>
+                                          <% for(var i=1; i<=totalPage; i++){ %>
+                                            <a href="?page=<%= i %>&search=<%= searchData %>"><%= i %></a>
+                                          <% } %>
+                                        </td>
+                                      </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--/Horizontal form-->
+
+                        <%- include('footer') %>
+
+                     
